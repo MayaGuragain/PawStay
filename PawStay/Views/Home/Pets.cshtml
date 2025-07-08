@@ -1,0 +1,31 @@
+﻿@using PawStay.Models;
+@model List<PetModel>
+@{
+    ViewBag.Title = "Pet Page";
+ }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scocpe="col">#</th>
+                <th scocpe="col">Name</th>
+                <th scocpe="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model)
+            {
+            <tr>
+                <th scocpe="row">@pet.PetID</th>
+                <td> @pet.Name </td>
+                <td> @pet.Age </td>
+                <td> @pet.Breed </td>
+                <td> @pet.DietaryRestrictions </td>
+                <td> @pet.Medication </td>
+                <td> @pet.SpecialInstructions </td>
+                <td> @pet.EmergencyContactName </td>
+                <td> @pet.EmergencyContactNumber </td>
+            </tr>
+            }
+        </tbody>
+    </table>

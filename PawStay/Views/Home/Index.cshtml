@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .homepage-wrapper {
+        max-width: 900px;
+        width: 95vw;
+        margin: 2rem auto;
+        padding: 1rem 1rem 2rem;
+        font-family: 'Comic Sans MS', 'Fredoka One', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #5a3d4a;
+        background: #fff6fb;
+        border-radius: 25px;
+        box-shadow: 0 12px 30px rgba(255, 182, 193, 0.3);
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .homepage-wrapper::before {
+        content: "🐾🐾🐾";
+        position: absolute;
+        font-size: 4rem;
+        color: #f8d7e3;
+        opacity: 0.12;
+        top: -10px;
+        left: 12%;
+        user-select: none;
+        pointer-events: none;
+        transform: rotate(-10deg);
+        font-family: serif;
+        letter-spacing: 1rem;
+        z-index: 0;
+    }
+
+    h1, h2 {
+        font-family: 'Fredoka One', cursive, 'Comic Sans MS', cursive, sans-serif;
+        background: linear-gradient(90deg, #f48fb1, #ffcc80, #aed581, #81d4fa, #ba68c8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        user-select: none;
+        position: relative;
+        animation: bounce 3s ease-in-out infinite;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: #ff6f91 !important;
+        text-shadow: 1px 1px 5px rgba(255, 111, 145, 0.6);
+        animation: none;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+    }
+
+    @@keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+        color: #6a4a58;
+    }
+
+    .lead {
+        border-radius: 20px;
+        padding: 1.2rem 1.8rem;
+        box-shadow: 0 8px 25px rgba(244, 143, 177, 0.25);
+        margin-bottom: 1.8rem;
+        transition: box-shadow 0.3s ease;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .lead:nth-child(odd) {
+        background: #ffecf3;
+    }
+
+    .lead:nth-child(even) {
+        background: #e1f0fb;
+    }
+
+    .lead:hover {
+        box-shadow: 0 14px 35px rgba(244, 143, 177, 0.5);
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+        justify-content: center;
+        margin-top: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    section.col-md-4 {
+        flex: 1 1 220px;
+        max-width: 280px;
+        border-radius: 28px;
+        padding: 1.8rem 2rem;
+        box-shadow: 0 10px 30px rgba(244, 143, 177, 0.28);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: default;
+        color: #7a4a5a;
+        user-select: none;
+        position: relative;
+        background-clip: padding-box;
+        background-blend-mode: screen;
+    }
+
+    section.col-md-4:nth-child(1) {
+        background: #ffe6f0;
+    }
+
+    section.col-md-4:nth-child(2) {
+        background: #fffbe0;
+    }
+
+    section.col-md-4:nth-child(3) {
+        background: #e6f4ff;
+    }
+
+    section.col-md-4:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 45px rgba(244, 143, 177, 0.5);
+    }
+
+    section.col-md-4 h2 {
+        background: linear-gradient(90deg, #f48fb1, #ffcc80, #aed581, #81d4fa, #ba68c8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1.3rem;
+        text-align: center;
+        text-shadow: 0 0 6px rgba(244, 143, 177, 0.5);
+    }
+
+    a {
+        color: #c93a6e;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #ee598c;
+        text-decoration: underline;
+    }
+
+    .btn-custom {
+        background: linear-gradient(135deg, #f48fb1, #d81b60);
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.55rem 2.2rem;
+        border-radius: 50px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(216, 27, 96, 0.45);
+        cursor: pointer;
+        display: inline-block;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+        letter-spacing: 0.04em;
+    }
+
+    .btn-custom:hover {
+        background: linear-gradient(135deg, #d81b60, #f48fb1);
+        box-shadow: 0 14px 40px rgba(244, 143, 177, 0.75);
+        color: #fff;
+        transform: scale(1.03);
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    @@media (max-width: 768px) {
+        h1 {
+            font-size: 2.4rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        .homepage-wrapper {
+            padding: 1rem;
+            border-radius: 20px;
+        }
+    }
+</style>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+
+<div class="homepage-wrapper">
+    <section aria-labelledby="aspnetTitle">
+        <h1 id="aspnetTitle">PAWSTAY</h1>
+
+        <p class="lead">
+            Welcome to PawStay, your trusted pet boarding platform! We know how much your furry friends mean to you, so we provide a safe, cozy, and loving space while you're away. At PawStay, pets are family. Our services give you peace of mind and your pets plenty of love, exercise, and fun during their stay.
+        </p>
+        <p class="lead">
+            Easily browse caregivers, check ratings, and book the perfect stay.
+            Start by checking our hours and plan your pet’s next happy adventure!
+        </p>
+        <p class="text-center">
+            <a href="https://localhost:44377/Hours" class="btn-custom" role="button">View Hours &raquo;</a>
+        </p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Book a Stay</h2>
+            <p>
+                Ready to board your pet? Log in, add pets, and book a stay.
+                New here? Join our PawStay family today!
+            </p>
+            <p class="text-center">
+                <a href="https://localhost:44377/Account/Register" class="btn-custom" role="button">Register Now &raquo;</a>
+            </p>
+        </section>
+
+        <section class="col-md-4" aria-labelledby="ourServicesTitle">
+            <h2 id="ourServicesTitle">Our Services</h2>
+            <p>
+                More than boarding: overnight stays, daycare, playtime, special diets, meds.
+                Trusted sitters treat your pets like their own, giving you peace of mind anytime.
+            </p>
+        </section>
+
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Questions or Concerns?</h2>
+            <p>We’re here for you and your pets! Reach out anytime! We’re always happy to help!</p>
+            <p class="text-center">
+                <a href="https://localhost:44377/Home/Contact" class="btn-custom" role="button">Contact Us &raquo;</a>
+            </p>
+        </section>
+    </div>
+</div>

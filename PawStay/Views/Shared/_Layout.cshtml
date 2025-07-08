@@ -1,0 +1,230 @@
+﻿@* ─────────────────────────────────────────────────────────────────────────────────────────────
+    PawStay | More colorful layout with sticky footer (cleaned & final)
+    ───────────────────────────────────────────────────────────────────────────────────────────── *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title | PawStay</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        :root {
+            --nav-gradient: linear-gradient(90deg, #f5576c, #f093fb);
+            --footer-bg: linear-gradient(145deg, #ffd6e8, #ccf2f4);
+            --text-color: #333;
+            --brand-color: #f06292;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #fff1f3, #f0f9ff);
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--brand-color);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover,
+        a:focus {
+            color: #d81b60;
+            outline: none;
+        }
+
+        .navbar {
+            background: var(--nav-gradient);
+            padding: 0.8rem 1.5rem;
+            border-radius: 0 0 1rem 1rem;
+            box-shadow: 0 4px 20px rgba(255, 99, 132, 0.2);
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border-radius: 12px;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus,
+        .nav-link[aria-current="page"] {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        main.body-content {
+            flex: 1;
+            max-width: 1200px;
+            width: 95%;
+            margin: 3rem auto 2rem;
+        }
+
+        footer.footer-section {
+            flex-shrink: 0;
+            background: var(--footer-bg);
+            color: #444;
+            padding: 3rem 1.5rem 2rem;
+            border-top: 4px dotted #f8bbd0;
+        }
+
+        .footer-section h4,
+        .footer-section h6 {
+            color: #d81b60;
+        }
+
+        .footer-section ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: #f06292;
+        }
+
+        .footer-icon-link {
+            color: #555;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-icon-link:hover {
+            color: #f06292;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ccc;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        @@media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-section {
+                text-align: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ───────────── Navbar ───────────── -->
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        @Html.ActionLink("PawStay", "Index", "Home", null, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between align-items-center">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link", aria_current = "page" })</li>
+                <li class="nav-item">@Html.ActionLink("Hours", "Index", "Hours", null, new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <!-- ───────────── Main Content ───────────── -->
+    <main class="body-content">
+        @RenderBody()
+    </main>
+
+    <!-- ───────────── Footer ───────────── -->
+    <footer class="footer-section">
+        <div class="row">
+            <!-- About -->
+            <div class="col-md-4 mb-4">
+                <h4>PawStay</h4>
+                <p>Trusted care for your pets while you're away. Cozy, safe, and full of tail wags!</p>
+                <div class="d-flex mt-3">
+                    <a href="https://github.com/mayaguragain" class="footer-icon-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:maya@mayaguragain.dev" class="footer-icon-link"><i class="fas fa-envelope"></i></a>
+                    <a href="https://twitter.com/mayaguragain" class="footer-icon-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <!-- Company Links -->
+            <div class="col-md-2 mb-4">
+                <h6>Company</h6>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index", "Hours")">Hours</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Support -->
+            <div class="col-md-2 mb-4">
+                <h6>Support</h6>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Live Chat</a></li>
+                </ul>
+            </div>
+            <!-- Legal -->
+            <div class="col-md-2 mb-4">
+                <h6>Legal</h6>
+                <ul>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex justify-content-between align-items-center">
+            <p class="mb-0">&copy; @DateTime.Now.Year PawStay · Built by Maya Guragain</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

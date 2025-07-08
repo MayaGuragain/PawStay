@@ -1,0 +1,48 @@
+﻿@model PawStay.ViewModels.ContactUsSubmissionVM
+
+@{
+    ViewBag.Title = "Contact";
+}
+<main aria-labelledby="title">
+    <h2 id="title">Contact Us</h2>
+    <h3>@ViewBag.Message</h3>
+
+    @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
+    {
+        
+        <div class="mb-3">
+            <label for="exInput" class="form-label">First Name</label>
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+
+        <div class="mb-3">
+            <label for="exInput" class="form-label">Last Name</label>
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+
+        <div class="mb-3">
+            <label for="exInput" class="form-label">Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+        <div class="mb-3">
+            <label for="exInput" class="form-label">Message</label>
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", rows = 4 })
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+    <address>
+        <abbr title="Phone">Phone:</abbr>
+        123.456.7890
+    </address>
+
+    <address>
+        <strong>Support:</strong>   <a href="mailto:support@example.com">support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:marketing@example.com">marketing@example.com</a>
+    </address>
+</main>
