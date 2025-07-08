@@ -1,20 +1,32 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# 🐾 PawStay - Pet Boarding Web App
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+PawStay is a user-friendly pet boarding web application designed to help pet owners book safe and reliable care for their pets. Built with ASP.NET and Entity Framework, it features appointment scheduling, email notifications, and a clean user experience.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+---
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## ✨ Features
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- 🐶 Book boarding for dogs, cats, or other pets
+- 🗓️ View availability and manage bookings
+- 📧 Email notifications for confirmation
+- 🔒 Secure user authentication
+- 🧩 Responsive layout using Razor Views and Bootstrap
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** ASP.NET MVC (C#)
+- **Database:** LocalDB / SQL Server (Entity Framework)
+- **Frontend:** HTML5, CSS3, Bootstrap
+- **Email Service:** SMTP integration (Gmail)
+- **Authentication:** ASP.NET Identity
+
+---
+
+## ⚙️ Getting Started
+
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/MayaGuragain/PawStay.git
+   cd PawStay
