@@ -30,3 +30,7 @@ PawStay is a user-friendly pet boarding web application designed to help pet own
    ```bash
    git clone https://github.com/MayaGuragain/PawStay.git
    cd PawStay
+   
+---
+
+## 👀 Demo
